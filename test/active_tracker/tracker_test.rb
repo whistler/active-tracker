@@ -40,4 +40,19 @@ class TrackerTest < ActiveSupport::TestCase
     assert Tracker.instance.tracker_blocks[:tracker2] == t2
   end
 
+  test "hit event can be defined" do
+    Tracker.config { hit :welcome, :index, "Visited Homepage", [:tracker1, :tracker2]}
+    assert Tracker.instance.hits.keys == [:welcome]
+    controller_hash = {:index => {:event => "Visited Homepage", :trackers => [:tracker1, :tracker2]}}
+    assert Tracker.instance.hits[:welcome] == controller_hash
+  end
+
+  test "change event can be defined" do
+
+  end
+
+  test "create event can be defined" do
+
+  end
+
 end

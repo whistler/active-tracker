@@ -30,13 +30,18 @@ module ActiveTracker
         @tracker_names = args
       end
 
+      # store tracker code blocks
       def method_missing(m, *args, &block)  
         if @tracker_names.include? m
-          # => binding.pry
           @tracker_blocks[m] = block
         else
           super(name, *args, &block)
         end
+      end
+
+      # store hit event
+      def hit(name, action, event, trackers)
+        @hits[name] = { action => {:event => event, :trackers => trackers} }
       end
 
   end
