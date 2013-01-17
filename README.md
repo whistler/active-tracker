@@ -33,8 +33,9 @@ change of a field in a record and creation of a new record.
       # Track model creation
       create :model_name, "Event Name", [:tracker2]
 
-"Event Name" is a name you give to the event you are tracking. :tracker1 and
-:tracker2 are names given to trackers (see below).
+*"Event Name"* is a name you give to the event you are tracking.
+
+*:tracker1* and *:tracker2* are names given to trackers (see below).
 
 Trackers
 --------
@@ -69,14 +70,18 @@ Within the tracker block there are certain instance variables that provide
 details about the event which can be stored.
 
 The following instance variables exist if a controller was hit
-@request - request in a controller
-@params - the params passed to the controller
-@user - the current user (if devise is being used)
+
+*@request* - request in a controller
+
+*@params* - the params passed to the controller
+
+*@user* - the current user (if devise is being used)
 
 Record instance varible exists if a model attribute was changed
-@record - the record that was changed
 
-@event - the name of event is always present
+*@record* - the record that was changed
+
+*@event* - the name of event is always present
 
 Credits
 -------
