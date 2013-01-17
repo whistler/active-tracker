@@ -12,6 +12,7 @@ gemspec
 
 
 gem 'sqlite3'
+gem 'pry'
 
 # To use debugger
 # gem 'debugger'
