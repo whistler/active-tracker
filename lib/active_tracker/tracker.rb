@@ -17,5 +17,15 @@ module ActiveTracker
         @creates = {}
         @trackers = {}
       end
+
+      def self.config &block
+        raise "Active Tracker: Configuration block not provided" unless block_given?
+        Tracker.instance.instance_eval &block
+      end
+
+      def trackers(*args)
+        @tracker_names = args
+      end
+
   end
 end

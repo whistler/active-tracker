@@ -14,7 +14,13 @@ class TrackerTest < ActiveSupport::TestCase
     assert Tracker.instance.creates == {}
   end
 
-  test "initialize trackers to empty hash" do
-    assert Tracker.instance.trackers == {}
+  test "tracker names are loaded" do
+    Tracker.config { trackers :tracker1, :tracker2}
+    Tracker.instance.tracker_names == [:tracker1, :tracker2]
   end
+
+  test "configuration block not provided" do
+    assert_raise(RuntimeError) { Tracker.config }
+  end
+
 end
